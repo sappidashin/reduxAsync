@@ -1,0 +1,26 @@
+{
+  "name": "reduxasync",
+  "version": "1.0.0",
+  "description": "redux async action exercise",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sappidashin/reduxAsync.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sappidashin/reduxAsync/issues"
+  },
+  "homepage": "https://github.com/sappidashin/reduxAsync#readme",
+  "dependencies": {
+    "babel-polyfill": "^6.9.1",
+    "isomorphic-fetch": "^2.2.1",
+    "redux": "^3.5.2",
+    "redux-logger": "^2.6.1",
+    "redux-thunk": "^2.1.0"
+  }
+}
