@@ -20,7 +20,7 @@ export function invalidateSubreddit(subreddit){
 
 export const REQUEST_POSTS = 'REQUEST_POSTS'
 
-export function requestPosts(subreddit){
+function requestPosts(subreddit){
 	return {
 		type: REQUEST_POSTS,
 		subreddit
@@ -29,7 +29,7 @@ export function requestPosts(subreddit){
 
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 
-export function receivePosts(subreddit, json){
+function receivePosts(subreddit, json){
 	return{
 		type: RECEIVE_POSTS,
 		subreddit,
@@ -38,11 +38,11 @@ export function receivePosts(subreddit, json){
 	}
 }
 
-export function fetchPosts(subreddit){
+function fetchPosts(subreddit){
 	return function(dispatch){
 		dispatch(requestPosts(subreddit))
 
-		return fetch('http://www.reddit.com/r/${subreddit}.json')
+		return fetch(`https://www.reddit.com/r/${subreddit}.json`)
 			.then(response => response.json())
 			.then(json => 
 				dispatch(receivePosts(subreddit, json))
@@ -51,7 +51,7 @@ export function fetchPosts(subreddit){
 }
 
 function shouldFetchPosts(state, subreddit){
-	const posts = state.postBySubreddit[subreddit]
+	const posts = state.postsBySubreddit[subreddit]
 	if(!posts){
 		return true
 	}else if(posts.isFetching)

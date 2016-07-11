@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { SELECT_SUBREDDIT, INVALIDATE_SUBREDDIT, REQUEST_POSTS, RECEIVE_POSTS} from './actions'
+import { SELECT_SUBREDDIT, INVALIDATE_SUBREDDIT, REQUEST_POSTS, RECEIVE_POSTS} from '../actions/actions'
 
 function selectedSubreddit(state = 'reactjs', action){
 	switch (action.type){
@@ -11,7 +11,7 @@ function selectedSubreddit(state = 'reactjs', action){
 }
 
 function posts(state={ isFetching: false, didInvalidate: false, items: []}, action){
-	switch(aciton.type){
+	switch(action.type){
 		case INVALIDATE_SUBREDDIT:
 			return Object.assign({}, state, {didInvalidate: true});
 		case REQUEST_POSTS:
