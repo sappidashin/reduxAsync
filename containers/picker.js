@@ -7,7 +7,7 @@ let Picker = ({ selectedSubreddit, options, handleChange, lastUpdated, isFetchin
 	return (
 		<div>
 			<h1>{selectedSubreddit}</h1>
-			<Selector options={options} handleChange={handleChange} />
+			<Selector options={options} handleChange={(e) => handleChange(e.target.value)} value={selectedSubreddit} />
 			<p>
 				{
 					lastUpdated &&
